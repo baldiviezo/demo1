@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Historicos</title>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/aside.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/buttonCRUD.css">
+    <link rel="stylesheet" type="text/css" href="../css/paginacion.css">
+</head>
+<body>
+    <header id="historicos"></header>  
+    <aside class="sidebar close"></aside>
+    <!--<main>
+        <label>Generar historico</label>
+        <button id="historico">historico</button>
+        <br>
+        <div>
+            <canvas id="allChart"></canvas>
+        </div>
+    </main>-->
+    <main class="table">
+		<div class="table__title">
+			<h1><img src="../imagenes/historico.svg">Historicos</h1>
+		</div>
+		<section class="table__header">
+			<img src="../imagenes/excel.svg" id="excelHistorico">
+			<div class="combo__search">
+				<div>
+					<select id="selectSearchClte" class="select">
+						<option value="ope_dm">OPE</option>
+						<option value="bomba1_dm">Bomba 1</option>
+						<option value="bomba2_dm">Bomba 2</option>
+                        <option value="falla1_dm">Falla 1</option>
+						<option value="falla2_dm">Falla 2</option>
+                        <option value="valvula_dm">Valvula</option>
+						<option value="nivel_dm">Nivel</option>
+                        <option value="fecha_tmp">Fecha</option>
+                        <option value="hora_tmp">Hora</option>
+					</select>
+				</div>
+				<div class="table__search">
+					<input type="search" id="inputSerchClte" placeholder="Search Data...">
+					<img src="../imagenes/search.png">
+				</div>
+			</div>
+		</section>
+		<div class="showPage" id="showPageCustomer"><h2></h2></div>
+		<div class="container__page">
+			<div class="paginacion">
+				<!--Envoltura-->
+				<div class="wrapper" id="wrapperCustomer"><ul></ul></div>
+			</div>
+			<div>
+				<select id="selectNumberClte">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="50">50 </option>
+				</select>
+			</div>
+		</div>
+		<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>N°</th>
+						<th>OPE</th>
+						<th>Bomba 1</th>
+						<th>Bomba 2</th>
+						<th>Falla 1</th>
+						<th>Falla 2</th>
+						<th>Valvula</th>
+						<th>Nivel</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+					</tr>
+				</thead>
+				<tbody id="tbodyCustomer"></tbody>
+			</table>
+		</section>
+	</main>
+</body>
+<script src="./scripts/header&aside.js"></script>
+<script src="./scripts/filesaver.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+<script src="./scripts/historico.js"></script>
+</html>

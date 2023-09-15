@@ -1,0 +1,41 @@
+header{
+    height: 4rem;
+    width: 100%;
+}
+header nav{
+    height: 100%;
+    width: 100%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+header nav img#menu{
+    margin: 0 1rem;
+    cursor: pointer;
+}
+header nav div{
+    display: flex;
+}
+header nav .notif{
+    position: relative;
+}
+header nav .notif .count{
+    position: absolute;
+    top: -.5rem;
+    right: .5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--danger);
+    border-radius: 50%;
+    color: var(--light);
+    border: 0.15rem solid var(--light);
+    font-weight: 700;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoreo</title>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/aside.css">
+    <link rel="stylesheet" href="../css/monitoreo.css">
+    <link rel="stylesheet" href="../css/foco.css">
+    <link rel="stylesheet" type="text/css" href="../css/userModal.css">
+</head>
+<body>
+    <header id="monitoreo"></header>  
+    <aside class="sidebar close"></aside>
+    <main>
+        <!-------------foco---------------->
+        <span class="foco foco__ope"></span>
+        <!------------imagenes--------------->
+        <div class="txt txt__bomba1">Bomba 1</div>
+        <div class="txt txt__bomba2">Bomba 2</div>
+        <div class="txt txt__tanque">Tanque</div>
+        <div class="txt txt__valvula">Valvula</div>
+        <div class="txt txt__ope">OPE</div>
+        <div class="imagen bomba1"></div>
+        <div class="imagen bomba2"></div>
+        <div class="imagen tanque"></div>
+        <div class="imagen tubo__vertical1"></div>
+        <div class="imagen tubo__vertical2"></div>
+        <div class="imagen tubo__vertical3"></div>
+        <div class="imagen tubo__vertical4"></div>
+        <div class="imagen tubo__horizontal1"></div>
+        <div class="imagen tubo__horizontal2"></div>
+        <div class="imagen codo__ad1"></div>
+        <div class="imagen codo__ad2"></div>
+        <div class="imagen codo__it"></div>
+        <div class="imagen codo__ia"></div>
+        <div class="imagen valvula"></div>
+        <!-------LINEA DE PROGRESO-------->
+        <div class="bar__tanque">
+            <div class="progreso__tanque"></div>
+        </div>
+        <!------------Valvula------------>
+        <div class="txt texto__bomba1"></div>
+        <div class="txt texto__bomba2"></div>
+        <div class="txt texto__valvula"></div>
+    </main>
+    <!--Modal de peligro-->
+	<section id="falla1MW" class="modal">
+		<div class="modal__container">
+			<!--Nombre de ventana modal y boton cerrar-->
+			<div class="modal__header">
+				<h2>¡PELIGRO!</h2>
+				<img src="../imagenes/salir.svg" id="closefalla1MW">
+			</div>
+            <div>
+                <h3></h3>
+            </div>
+		</div>
+	</section>
+</body>
+<script src="./scripts/header&aside.js"></script>
+<script src="./scripts/monitoreo.js"></script>
+</html>

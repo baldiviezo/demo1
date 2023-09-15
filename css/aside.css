@@ -1,0 +1,114 @@
+.sidebar{
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    background: var(--light);
+    width: 12rem;
+    height: 100%;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    transition: all 0.3s ease;
+}
+.sidebar::-webkit-scrollbar{
+    display: none;
+}
+.sidebar.close{
+    width: 4rem;
+}
+.sidebar .logo{
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    height: 5rem;
+    align-items: center;
+    color: var(--primary);
+    box-sizing: content-box;
+    padding-bottom: 2rem;
+}
+.sidebar .logo .logo-name span{
+    color: var(--dark);
+}
+.sidebar .logo img{
+    margin: 0 1rem;
+    width: 2rem;
+    height: 2rem;
+    /*filter: invert(33%) sepia(22%) saturate(1389%) hue-rotate(152deg) brightness(86%) contrast(88%);*/
+}
+.sidebar .side-menu{
+    width: 100%;
+}
+.sidebar .side-menu li{
+    height: 3.5rem;
+    background: transparent;
+    margin-left: .42rem;
+    border-radius: 3.5rem 0 0 3.5rem;
+    padding: .28rem;
+}
+.sidebar .side-menu li img{
+    margin-left: .3rem;
+    margin-right: 1rem;
+}
+.sidebar .side-menu li.active{
+    background: var(--grey);
+    position: relative;
+}
+/*.sidebar .side-menu li.active img{
+    filter: invert(36%) sepia(17%) saturate(6215%) hue-rotate(100deg) brightness(97%) contrast(56%);
+}*/
+.sidebar .side-menu li.active::before{
+    content: "";
+    position: absolute;
+    width: 2.85rem;
+    height: 2.85rem;
+    border-radius: 50%;
+    top: -2.85rem;
+    right: 0;
+    box-shadow: 1.42rem 1.42rem 0 var(--grey);
+    z-index: -1;
+}
+.sidebar .side-menu li.active::after{
+    content: "";
+    position: absolute;
+    width: 2.85rem;
+    height: 2.85rem;
+    border-radius: 50%;
+    bottom: -2.85rem;
+    right: 0;
+    box-shadow: 1.42rem -1.42rem 0 var(--grey);
+    z-index: -1;
+}
+.sidebar .side-menu li a{
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    border-radius: 3.43rem;
+    font-size: 1rem;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+.sidebar .side-menu li.active a{
+    color: var(--success);
+}
+.sidebar.close .side-menu li a{
+    width: calc(48px - (4px * 2));
+    transition: all 0.3s ease;
+}
+/*main*/
+main{
+    position: relative;
+    width: calc(100% - 12rem);
+    left: 12rem;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar.close~main{
+    width: calc(100% - 4rem);
+    left: 4rem;
+}

@@ -1,0 +1,120 @@
+.gauge {
+	position: relative;
+	width: 20rem;
+	height: 20rem;
+	background: var(--light);
+	border-radius: .8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gauge .scale {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.gauge .scale span {
+	position: absolute;
+	font-size: 1rem;
+	color: #000;
+}
+.gauge .scale span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%);
+}
+.gauge .scale span:nth-child(2) {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.gauge .scale span:nth-child(3) {
+	top: 50%;
+	right:0;
+	transform: translateY(-50%);
+}
+.gauge .line {
+	position: absolute;
+	width: 72%;
+	height: 72%;
+	background: var(--light);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.gauge .line span {
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	border-top: 1px solid #afafaf;
+	transform: rotate(calc((var(--i) - 1) * 9 * 1deg));
+}
+.gauge .line::after {
+	content: '';
+	position: absolute;
+	width: 93%;
+	height: 93%;
+	background: #fff;
+	border-radius: 50%;
+}
+.gauge .line__bottom {
+	position: absolute;
+	width: 80%;
+	height: 48%;
+	bottom: 0;
+	background: var(--light);
+}
+
+.gauge .circle__bottom {
+	position: absolute;
+	width: 66%;
+	height: 66%;
+	background: linear-gradient(#efefef, #ffffff);
+	border-radius: 50%;
+	box-shadow: inset 0 5px 5px #e7e7e7;
+}
+.gauge svg {
+	position: absolute;
+}
+
+.gauge svg path {
+	transition: 1s;
+}
+
+.gauge .circle__center {
+	position: absolute;
+	width: 12rem;
+	height: 12rem;
+	background: linear-gradient(180deg, #ffffff 0%, #e7ecf1 100%);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+}
+
+.gauge .circle__center::before {
+	content: '';
+	position: absolute;
+	width: 10rem;
+	height: 10rem;
+	background: linear-gradient(0deg, #ffffff 0%, #e7ecf1 100%);
+	border-radius: 50%;
+}
+.gauge .name__gauge {
+	position: absolute;
+	font-size: 1em;
+	color: #7f7f7f;
+	font-weight: 700;
+	top: 40px;
+}
+/*.gauge .circle__center img {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	bottom: 20px;
+}*/
+.gauge .value__gauge {
+	position: absolute;
+	font-size: 3em;
+	color: #afafaf;
+}

@@ -1,0 +1,179 @@
+.imagen{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.bomba1{
+    background-image: url(../componentes/bomba-der.svg);
+    width: 16rem;
+    height: 7.5rem;
+    top: 25rem;
+    left: 3rem;
+}
+.bomba2{
+    background-image: url(../componentes/bomba-der.svg);
+    width: 16rem;
+    height: 7.5rem;
+    top: 25rem;
+    left: 22rem;
+}
+.tanque{
+    background-image: url(../componentes/tanque-4patas.svg);
+    width: 30rem;
+    height: 25rem;
+    top: 7.5rem;
+    left: 50rem;
+}
+.valvula{
+    background-image: url(../componentes/valvula.svg);
+    width: 5rem;
+    height: 4.5rem;
+    top: 1rem;
+    left: 46rem;
+}
+.txt{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #225c74;
+    position: absolute;
+}
+.txt__bomba1{
+    top: 33rem;
+    left: 7rem;
+}
+.txt__bomba2{
+    top: 33rem;
+    left: 26rem;
+}
+.txt__tanque{
+    top: 33rem;
+    left: 61rem;
+}
+.txt__valvula{
+    top: 6rem;
+    left: 44rem;
+}
+.txt__ope{
+    top: 7rem;
+    left: 3.5rem;
+}
+.tubo__vertical1{
+    background-color: #afafb1;
+    width: 1.6rem;
+    height: 3rem;
+    top: 22.2rem;
+    left: 15.5rem;
+}
+.tubo__vertical2{
+    background-color: #afafb1;
+    width: 1.6rem;
+    height: 3rem;
+    top: 22.2rem;
+    left: 34.5rem;
+}
+.tubo__vertical3{
+    background-color: #afafb1;
+    width: 1.6rem;
+    height: 16rem;
+    top: 5rem;
+    left: 39rem;
+}
+.tubo__vertical4{
+    background-color: #afafb1;
+    width: 1.6rem;
+    height: 4.5rem;
+    top: 5rem;
+    left: 55.6rem;
+}
+.codo__ad1{
+    background-color: #afafb1;
+    border-top-left-radius: 100%;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 20.8rem;
+    left: 15.5rem;
+}
+.codo__ad2{
+    background-color: #afafb1;
+    border-top-left-radius: 100%;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 3.4rem;
+    left: 39rem;
+}
+.tubo__horizontal1{
+    background-color: #afafb1;
+    width: 22rem;
+    height: 1.6rem;
+    top: 20.8rem;
+    left: 17.1rem;
+}
+.tubo__horizontal2{
+    background-color: #afafb1;
+    width: 15rem;
+    height: 1.6rem;
+    top: 3.4rem;
+    left: 40.6rem;
+}
+
+.codo__it{
+    background-color: #afafb1;
+    border-bottom-right-radius: 100%;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 20.8rem;
+    left: 39rem;
+}
+.codo__ia{
+    background-color: #afafb1;
+    border-top-right-radius: 100%;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 3.4rem;
+    left: 55.6rem;
+}
+/*********LINEA DE PROGRESO*******************/
+.bar__tanque{
+    width: 24rem;
+    height: 11.5rem;
+    background-color: #fff;
+    position: absolute;
+    top: 10rem;
+    left: 53rem;
+    /*border-radius: 30px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.progreso__tanque{
+    width: 100%;
+    height: .5rem;
+    background-color: aqua;   
+}
+/***************ON/OFF************/
+.texto__bomba1{
+    top: 23rem;
+    left: 8rem;
+}
+.texto__bomba2{
+    top: 23rem;
+    left: 28rem;
+}
+.texto__valvula{
+    top: .5rem;
+    left: 42rem;
+}
+/******FOCO********/
+.foco__ope{
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+}
+/********MODAL FALLAS********/
+#falla1MW h2{
+    color: red;
+}
+#falla1MW h3{
+    margin: 1rem 0;
+}

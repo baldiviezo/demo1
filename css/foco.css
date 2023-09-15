@@ -1,0 +1,40 @@
+.section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-gap: 1rem;
+}
+
+.foco__container{
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    grid-gap: 1rem;
+    /*cursor: pointer;*/
+}
+.foco{
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgb(0, 0,0,0.3);
+    position: relative;
+}
+.foco::after{
+    content: '';
+    position: absolute;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    border-right: 4px solid rgb(255, 255,255,0.6);
+    top: 5%;
+}
+.green{
+    background-color: #2ecc71;
+    box-shadow: 0 0 10px 1px #2ecc71;
+}
+.red{
+    background-color: #c0392b;
+    box-shadow: 0 0 10px 1px #c0392b;
+}
