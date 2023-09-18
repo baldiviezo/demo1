@@ -23,10 +23,10 @@ form.addEventListener('submit', ()=>{
 		body: objeto
 	//Si recivimos en text, es un json string
 	//si recibimos con json, es un objeto json
-	}).then(response => response.text()).then(data => {
+	}).then(response => response.json()).then(data => {
 		//_self nos ayuda a remplazar la ventana actual, por la ventana que queremos abrir
-        console.log(data);
-		if (data=="Correcto!!"){
+		if (data != "No existe"){
+			localStorage.setItem('id_usua', data.id_usua);
             window.open('./monitoreo.html',"_self");
         }else{
 			alert("Usuario o Contraseña incorrecto");

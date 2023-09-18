@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrar Sesion</title>
+</head>
+<body>
+    <script>
+        let objeto = {
+            'id_usua': localStorage.getItem('id_usua')
+        }
+        objeto = JSON.stringify(objeto);
+        fetch('../cerrarSesion', {
+            method: "POST",
+            body: objeto
+        }).then(response => response.json()).then(data => {
+            if (data == 0){
+            localStorage.removeItem('id_usua');
+            window.open('./login.html',"_self");
+        }
+        })
+    </script>
+</body>
+</html>

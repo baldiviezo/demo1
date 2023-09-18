@@ -12,7 +12,7 @@ sideBar.innerHTML = `
     <li class="usuarios"><a href="./usuarios.html"><img src="../imagenes/user.svg"></i>Usuarios</a></li>
 </ul>
 <ul class="side-menu">
-    <li><a href="./login.html"><img src="../imagenes/logout.svg">Salir</a></li>
+    <li><a href="./cerrar.html"><img src="../imagenes/logout.svg">Salir</a></li>
 </ul>           
 `;
 const header = document.querySelector('header');
