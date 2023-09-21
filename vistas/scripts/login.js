@@ -27,6 +27,7 @@ form.addEventListener('submit', ()=>{
 		if (data.id_usua == "No existe"){
 			alert("Usuario o Contraseña incorrecto");
         }else{
+			localStorage.setItem('usua_rol', data.rol_usua);
 			localStorage.setItem('id_usua', data.id_usua);
             window.open('./monitoreo.html',"_self");
         }

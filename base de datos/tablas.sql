@@ -60,3 +60,14 @@ CREATE TABLE `demo` (
   `fecha_tmp` varchar(10) NOT NULL,
   `hora_tmp` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+/**TABLA DE SEGUIMIENTO**/
+CREATE TABLE `seguimiento` (
+  `id_sgmt` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre_sgmt` varchar(30) NOT NULL,
+  `mensaje_sgmt` varchar(100) NOT NULL,
+  `categoria_sgmt` varchar(11) NOT NULL,
+  `fecha_sgmt` varchar(10) NOT NULL,
+  `hora_sgmt` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,9 +1,3 @@
-//--------------------------------------------Restricciones de usuario----------------------------------------------
-if(localStorage.getItem('usua_rol') == 'Ingeniero'){
-    document.querySelector('.table__header').classList.add('hide');
-    document.querySelectorAll('.form__radio')[1].classList.add('hide');
-    document.getElementsByName('email_usuaM')[0].parentNode.classList.add('hide');
-}
 //<<-------------------------------------------CARGAR LA TABLA----------------------------------------------------->>
 //------Leer tabla de usuarios
 let usuarios ={};
@@ -17,7 +11,6 @@ function readUsers() {
             method: "POST",
             body: formData
     }).then(response => response.json()).then(data => {
-        console.log(data);
         usuarios = data;
         tableUsers();
     }).catch(err => console.log(err));
@@ -45,7 +38,6 @@ function  tableUsers(){
             let td = document.createElement('td');
             if(localStorage.getItem('usua_rol') == 'Administrador'){
                 td.innerHTML = `
-                <img src='../imagenes/edit.svg' onclick='readUser(this.parentNode.parentNode)'>
                 <img src='../imagenes/trash.svg' onclick='deleteUser(this.parentNode.parentNode)'>`;
             }else{
                 td.innerHTML = `
@@ -81,39 +73,39 @@ function createUser(){
     let pass2 = document.getElementsByName("contraseña2_usua_R")[0];
     if(pass1.value == pass2.value){
         event.preventDefault();
-        let form = document.getElementById("formUsersR");
-        let formData = new FormData(form);
-        formData.append('createUser', '');
-        fetch('../controladores/usuarios.php', {
+        const inputs = document.querySelectorAll('#formUsersR input.form__input');
+        const objeto = {
+            'nombres': inputs[0].value,
+            'apellidos': inputs[1].value,
+            'pass': inputs[2].value,
+            'email': inputs[4].value,
+            'ci': inputs[5].value,
+            'direccion': inputs[6].value,
+            'celular': inputs[7].value,
+            'rol': document.querySelector('#rol_usua_R').value
+        }
+        formRegistrar = JSON.stringify(objeto); 
+        
+        fetch('../registrarUsuario', {
             method: "POST",
-            body: formData
+            body: formRegistrar
         }).then(response => response.text()).then(data => {
-            if (data!="registrado"){           
-                alert(data);
-            }else{
-                usersRMW.classList.remove('modal__show');
-                readAllCustomers();
-                cleanUpFormRegister();
-            }
+            usersRMW.classList.remove('modal__show');
+            readUsers();
+            cleanUpFormRegister();
+            
         }).catch(err => console.log(err));
     }else{
         alert("Las contraseñas no son iguales");
     }
 }
 //------Leer usuario
-function readUser (usuario){
+/*function readUser (usuario){
     let id_usua = usuario.children[0].innerText;
     for(let usuario in usuarios){
         if(usuarios[usuario]['id_usua']==id_usua){
             for(let columna in usuarios[usuario]){
-                if(columna == 'rol_usua'){
-                    if (usuarios[usuario][columna]=='Administrador'){
-                        document.getElementById('admi').checked = true;
-                    }
-                    if (usuarios[usuario][columna]=='Ingeniero'){
-                        document.getElementById('ing').checked = true;
-                    }
-                }else if(columna == 'contraseña_usuaM'){
+                if(columna == 'contraseña_usuaM'){
                     document.getElementsByName(columna)[0].value = '';
                 }else{
                     document.getElementsByName(columna+'M')[0].value = usuarios[usuario][columna];
@@ -136,7 +128,7 @@ function updateUser(){
         let form = document.getElementById("formUsersM");
         let formData = new FormData(form);
         formData.append('updateUser', 'guardar');
-        fetch('../controladores/usuarios.php', {
+        fetch('../modificarUsuario', {
                 method: "POST",
                 body: formData
         }).then(response => response.text()).then(data => {
@@ -152,19 +144,17 @@ function updateUser(){
         event.preventDefault();
         alert("Las contraseñas no son iguales");
     }
-}
+}*/
 //------Borrar usuario
 function deleteUser (usuario){
     let id_usua = usuario.children[0].innerText;
     if (confirm('¿Esta usted seguro?')){
-        const formData = new FormData()
-        formData.append('deleteUser', id_usua);
-        fetch('../controladores/usuarios.php', {
+        fetch('../eliminarUsuario', {
             method: "POST",
-            body: formData
+            body: id_usua
         }).then(response => response.text()).then(data => {
             if (data!=""){
-                readAllCustomers();
+                readUsers();
             }
         }).catch(error => console.log("Ocurrio un error. Intente nuevamente mas tarde"));
     }
@@ -198,8 +188,6 @@ function espaciosObligatorios(){
     //para el formulario de modificar
     document.getElementsByName("id_usuaM")[0].setAttribute("hidden","");
     document.getElementsByName("rol_usuaM")[0].setAttribute("required","");
-    //para el formulario de registrar
-    document.getElementsByName("rol_usua_R")[0].setAttribute("required","");
 }
 //------Limpia los formualrios registrar y modificar
 function cleanUpFormModify(){
@@ -215,11 +203,4 @@ function cleanUpFormModify(){
 }
 function cleanUpFormRegister(){
     registerInputs.forEach(input => input.value = "");
-    //limpiar los radio buton
-    if(document.getElementById('ingR').checked){
-        document.getElementById('ingR').checked = false;
-    }
-    if(document.getElementById('admiR').checked){
-        document.getElementById('admiR').checked = false;
-    }
 }

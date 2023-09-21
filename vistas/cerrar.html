@@ -17,6 +17,7 @@
         }).then(response => response.json()).then(data => {
             if (data == 0){
             localStorage.removeItem('id_usua');
+            localStorage.removeItem('rol_usua');
             window.open('./login.html',"_self");
         }
         })
