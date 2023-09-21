@@ -25,7 +25,7 @@
 	/*como su padre tiene flexbox se puede usar el margin auto*/
 	display: grid;/*activa el overlay*/
 	width: 94%;
-	max-width: 1600px;
+	max-width: 600px;
 	height: 90%;
 	margin: auto;	
 	font-family: 'Roboto', sans-serif;
@@ -246,84 +246,6 @@ tbody tr:hover{
 /*#tbodyProduct td:nth-of-type(2){
 	min-width: 1rem;
 }*/
-#tbodyProduct td:nth-of-type(4){
-	min-width: 8rem;
-	max-width: 12rem;
-}
-#tbodyProduct td:nth-of-type(6){
-	min-width: 12rem;
-	max-width: 16rem;
-} 
-#tbodyProduct td:nth-of-type(7){
-	min-width: 30rem;
-} 
-/*----------------------tabla inventario ---------------------------------------------*/
-#tbodyInventory td:nth-of-type(5){
-	min-width: 8rem;
-	max-width: 12rem;
-}
-#tbodyInventory td:nth-of-type(7){
-	min-width: 12rem;
-	max-width: 16rem;
-}
-#tbodyInventory td:nth-of-type(8){
-	min-width: 30rem;
-}
-/*-------------------------espacios de tabla product modal---------------------------------------*/
-/*#tbodyProduct td:nth-of-type(2){
-	min-width: 1rem;
-}*/
-#tbodyProductMW td:nth-of-type(6){
-	min-width: 12rem;
-} 
-#tbodyProductMW td:nth-of-type(7){
-	min-width: 30rem;
-} 
-/*----------------------tabla inventario modal ---------------------------------------------*/
-#tbodyInvMW td:nth-of-type(7){
-	min-width: 12rem;
-}
-#tbodyInvMW td:nth-of-type(8){
-	min-width: 30rem;
-}
-
-/*-----------------------tabla preview-----------------------------*/
-#previewProducts td:nth-of-type(2){
-	min-width: 8rem;
-}
-#previewProducts td:nth-of-type(3){
-	min-width: 12rem;
-}
-#previewProducts td:nth-of-type(4){
-	min-width: 30rem;
-}
-#previewProducts td:nth-of-type(7), #previewProducts td:nth-of-type(8){
-	min-width: 8rem;
-}
-/*-----------------------------tabla de proformas--------------------------------*/
-#tbodyProforma td:nth-of-type(4), #tbodyProforma td:nth-of-type(6){
-	min-width: 10rem;
-}
-#tbodyProforma td:nth-of-type(8){
-	min-width: 16rem;
-}
-#tbodyProforma td:nth-of-type(9), #tbodyProforma td:nth-of-type(10){
-	min-width: 12rem;
-}
-#tbodyProforma td:nth-of-type(12){
-	min-width: 10rem;
-}
-/*-----------------------------tabla de proformas modificadas--------------------------------*/
-#ttbodymProforma td:nth-of-type(4), #ttbodymProforma td:nth-of-type(6){
-	min-width: 10rem;
-}
-#ttbodymProforma td:nth-of-type(8), #ttbodymProforma td:nth-of-type(9), #ttbodymProforma td:nth-of-type(10){
-	min-width: 20rem;
-}
-#ttbodymProforma td:nth-of-type(12){
-	min-width: 10rem;
-}
-
 
 /*----------------------------Para que header sea responsive------------------------------*/
 @media (max-width:800px){

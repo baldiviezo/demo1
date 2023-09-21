@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/aside.css">
-    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/buttonCRUD.css">
+    <link rel="stylesheet" type="text/css" href="../css/paginacion.css">
+
+	<link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="../css/buttonCRUD.css">
     <link rel="stylesheet" type="text/css" href="../css/paginacion.css">
 </head>
@@ -32,15 +35,12 @@
 			<div class="combo__search">
 				<div>
 					<select id="selectSearchClte" class="select">
-						<option value="ope_dm">OPE</option>
-						<option value="bomba1_dm">Bomba 1</option>
-						<option value="bomba2_dm">Bomba 2</option>
-                        <option value="falla1_dm">Falla 1</option>
-						<option value="falla2_dm">Falla 2</option>
-                        <option value="valvula_dm">Valvula</option>
-						<option value="nivel_dm">Nivel</option>
-                        <option value="fecha_tmp">Fecha</option>
-                        <option value="hora_tmp">Hora</option>
+						<option value="todas">Buscar por</option>
+						<option value="nombre_fll">Nombre</option>
+						<option value="mensaje_fll">Mensaje</option>
+						<option value="categoria_fll">Categoria</option>
+                        <option value="fecha_fll">Fecha</option>
+                        <option value="hora_fll">Hora</option>	
 					</select>
 				</div>
 				<div class="table__search">
@@ -69,21 +69,75 @@
 				<thead>
 					<tr>
 						<th>N°</th>
-						<th>OPE</th>
-						<th>Bomba 1</th>
-						<th>Bomba 2</th>
-						<th>Falla 1</th>
-						<th>Falla 2</th>
-						<th>Valvula</th>
-						<th>Nivel</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
+						<th>Nombre</th>
+						<th>Mensaje</th>
+						<th>Categoria</th>
+						<th>Fecha</th>
+						<th>Hora</th>
 					</tr>
 				</thead>
 				<tbody id="tbodyCustomer"></tbody>
 			</table>
 		</section>
 	</main>
+	<!--Tabla de seguimiento-->
+    <section id="productSMW" class="modalTable">
+		<div class="modalTable__container">
+			<div class="table">
+				<div class="table__title">
+					<h1>Tabla de productos</h1>
+					<img src="../imagenes/salir.svg" id="closeProductSMW">
+				</div>
+				<section class="table__header">
+					<img src="../imagenes/excel.svg" id="excelHistorico">
+					<div class="combo__search">
+						<div>
+							<select id="selectSearchProdMW" class="select">
+								<option value="todas">Buscar por</option>
+								<option value="nombre_sgmt">Nombre</option>
+								<option value="mensaje_sgmt">Mensaje</option>
+								<option value="categoria_sgmt">Categoria</option>
+                                <option value="fecha_sgmt">Fecha</option>
+                                <option value="hora_sgmt">Hora</option>
+							</select>
+						</div>
+						<div class="table__search">
+							<input type="search" id="inputSearchProdMW" placeholder="Search Data...">
+							<img src="../imagenes/search.png">
+						</div>
+					</div>
+				</section>
+				<div class="showPage" id="showPageProductMW"><h2></h2></div>
+				<div class="container__page">
+					<div class="paginacion">
+						<!--Envoltura-->
+						<div class="wrapper" id="wrapperProductMW"><ul></ul></div>
+					</div>
+					<div>
+						<select id="selectNumberProdMW">
+							<option value="10">10 </option>
+							<option value="20">20</option>
+						</select>
+					</div>
+				</div>
+				<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>N°</th>
+						<th>Nombre</th>
+						<th>Mensaje</th>
+						<th>Categoria</th>
+						<th>Fecha</th>
+						<th>Hora</th>
+					</tr>
+				</thead>
+				<tbody id="tbodyProductMW"></tbody>
+			</table>
+		</section>
+			</div>		
+		</div>
+	</section>
 </body>
 <script src="./scripts/header&aside.js"></script>
 <script src="./scripts/filesaver.js"></script>

@@ -63,13 +63,21 @@ function searchLogo(e){
         i=0;
         for(let customer in logo){
             for(let valor in logo[customer] ){
-                if(valor == selectSearchClte.value){
-                    if(String(logo[customer][valor]).toLowerCase().indexOf(inputSerchClte.value.toLowerCase())>=0){
-                        filterLogo[i] = logo[customer];
-                        i++;
-                        break;
-                    }  
-                }  
+                if(selectSearchProdMW.value == 'todas'){
+                    if(valor == 'nombre_fll' ||  valor == 'mensaje_fll' || valor == 'categoria_fll' || valor == 'fecha_fll' || valor == 'hora_fll'){
+                        if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
+                            filterlogo[customer] = logo[customer];
+                            break;
+                        }
+                    }
+                }else{
+                    if(valor == selectSearchProdMW.value){
+                        if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
+                            filterlogo[customer] = logo[customer];
+                            break;
+                        }
+                    }
+                } 
             }
             
         }
@@ -149,7 +157,7 @@ function tableCustomers(page) {
         let tr = document.createElement('tr');
         for(let valor in filterLogo[customer]){
             let td = document.createElement('td');
-            if(valor == 'id_dm'){
+            if(valor == 'id_fll'){
                 td.innerText = filterLogo[customer][valor];
                 td.setAttribute('hidden', '');
                 tr.appendChild(td);

@@ -71,3 +71,15 @@ CREATE TABLE `seguimiento` (
   `fecha_sgmt` varchar(10) NOT NULL,
   `hora_sgmt` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+/****TABLA DE FALLAS *****/
+CREATE TABLE `falla` (
+  `id_fll` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre_fll` varchar(30) NOT NULL,
+  `mensaje_fll` varchar(100) NOT NULL,
+  `categoria_fll` varchar(11) NOT NULL,
+  `fecha_fll` varchar(10) NOT NULL,
+  `hora_fll` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

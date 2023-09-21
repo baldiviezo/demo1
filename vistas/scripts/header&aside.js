@@ -41,7 +41,6 @@ header.innerHTML = `
     <div>
         <a href="#" class="notif">
             <img src="../imagenes/bell.svg" id="seguimiento">
-            <span class="count">0</span>
         </a>
     </div>
 </nav>
@@ -63,7 +62,6 @@ seguimiento.addEventListener('click', tablaSeguimiento);
 
 function tablaSeguimiento(){
     productSMW.classList.add('modal__show');
-    readProductsMW();
 }
 const closeProductSMW = document.getElementById('closeProductSMW');
 closeProductSMW.addEventListener('click',()=>{
@@ -72,6 +70,11 @@ closeProductSMW.addEventListener('click',()=>{
 
 
 //------------------------------------------------TABLA MODAL PRODUCTS--------------------------------------------------
+setInterval(()=>{
+    readProductsMW();
+},5000)
+
+
 let productsMW = {};
 let filterProductsMW = [];
 function readProductsMW() {
