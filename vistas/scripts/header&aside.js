@@ -64,6 +64,7 @@ seguimiento.addEventListener('click', tablaSeguimiento);
 
 function tablaSeguimiento(){
     productSMW.classList.add('modal__show');
+    readProductsMW();
 }
 const closeProductSMW = document.getElementById('closeProductSMW');
 closeProductSMW.addEventListener('click',()=>{
