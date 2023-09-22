@@ -74,12 +74,13 @@ closeProductSMW.addEventListener('click',()=>{
     }).then(response => response.json()).then().catch(err => console.log(err));
 });
 /**************ADVERTENCIA************* */
-fetch('../count', {
-    method: "POST"
-}).then(response => response.json()).then(data=>{
-    console.log(data);
-}).catch(err => console.log(err));
-
+setInterval(()=>{
+    fetch('../count', {
+        method: "POST"
+    }).then(response => response.text()).then(data=>{
+        console.log(data);
+    }).catch(err => console.log(err));
+},1000)
 //------------------------------------------------TABLA MODAL PRODUCTS--------------------------------------------------
 setInterval(()=>{
     readProductsMW();
