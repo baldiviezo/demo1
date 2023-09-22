@@ -11,9 +11,38 @@ showChart.addEventListener('click',()=>{
   console.log(variable.value);
   fetch('../graficas', {
     method: "POST",
-    body: variable.value
+    body: JSON.stringify(variable.value)
   }).then(response => response.json()).then(data => {
-    
+    data.forEach((valor) => {
+      ajey.push(valor[`${variable.value}`]);
+      ejex.push(valor.hora_tmp);
+    });
+    const myChart = chart.children[0];
+    new Chart(myChart, {
+      type: 'line',
+      data: {
+        labels: ejex,
+        datasets: [{
+          backgroundColor: 'rgba(255,206,86,0.2)',
+          borderColor: 'orange',
+          data: ejey,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        animation: {
+        onComplete: ()=>{
+          delayed: false;
+        }
+        },
+        tension: 0.4, 
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   }).catch(err => console.log(err));
 });
 
