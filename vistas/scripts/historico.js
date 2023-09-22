@@ -64,14 +64,14 @@ function searchLogo(){
             for(let valor in logo[customer] ){
                 if(selectSearchClte.value == 'todas'){
                     if(valor == 'nombre_sgmt' ||  valor == 'mensaje_sgmt' || valor == 'categoria_sgmt' || valor == 'fecha_sgmt' || valor == 'hora_sgmt'){
-                        if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
+                        if(logo[customer][valor].toLowerCase().indexOf(inputSerchClte.value.toLowerCase())>=0){
                             filterLogo[customer] = logo[customer];
                             break;
                         }
                     }
                 }else{
                     if(valor == selectSearchClte.value){
-                        if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
+                        if(logo[customer][valor].toLowerCase().indexOf(inputSerchClte.value.toLowerCase())>=0){
                             filterLogo[customer] = logo[customer];
                             break;
                         }
