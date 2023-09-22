@@ -58,7 +58,7 @@ selectNumberClte.addEventListener('change', function(){
 });
 //------buscar por:
 function searchLogo(e){
-    if(e.keyCode===13){
+    
         filterLogo = [];
         i=0;
         for(let customer in logo){
@@ -82,7 +82,7 @@ function searchLogo(e){
             
         }
         paginacionCustomer(Object.values(filterLogo).length, 1);
-    }
+    
 }
 //------Ordenar tabla descendente ascendente
 let orderLogo = document.querySelectorAll('.tbody__head--customer');
