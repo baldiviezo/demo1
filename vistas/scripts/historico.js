@@ -64,7 +64,7 @@ function searchLogo(e){
         for(let customer in logo){
             for(let valor in logo[customer] ){
                 if(selectSearchProdMW.value == 'todas'){
-                    if(valor == 'nombre_fll' ||  valor == 'mensaje_fll' || valor == 'categoria_fll' || valor == 'fecha_fll' || valor == 'hora_fll'){
+                    if(valor == 'nombre_sgmt' ||  valor == 'mensaje_sgmt' || valor == 'categoria_sgmt' || valor == 'fecha_sgmt' || valor == 'hora_sgmt'){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
                             filterlogo[customer] = logo[customer];
                             break;
@@ -157,7 +157,7 @@ function tableCustomers(page) {
         let tr = document.createElement('tr');
         for(let valor in filterLogo[customer]){
             let td = document.createElement('td');
-            if(valor == 'id_fll'){
+            if(valor == 'id_sgmt'){
                 td.innerText = filterLogo[customer][valor];
                 td.setAttribute('hidden', '');
                 tr.appendChild(td);
