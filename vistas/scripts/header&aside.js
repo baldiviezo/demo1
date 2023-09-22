@@ -84,6 +84,7 @@ setInterval(()=>{
     }).then(response => response.text()).then(data=>{
         count.innerHTML = data;
         countInput.value = data;
+        console.log(countInput.value);
     }).catch(err => console.log(err));
 },1000)
 countInput.addEventListener('change', readProductsMW)
