@@ -62,7 +62,7 @@ function searchLogo(){
         i=0;
         for(let customer in logo){
             for(let valor in logo[customer] ){
-                if(selectSearchProdMW.value == 'todas'){
+                if(selectSearchClte.value == 'todas'){
                     if(valor == 'nombre_sgmt' ||  valor == 'mensaje_sgmt' || valor == 'categoria_sgmt' || valor == 'fecha_sgmt' || valor == 'hora_sgmt'){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
                             filterLogo[customer] = logo[customer];
@@ -70,7 +70,7 @@ function searchLogo(){
                         }
                     }
                 }else{
-                    if(valor == selectSearchProdMW.value){
+                    if(valor == selectSearchClte.value){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
                             filterLogo[customer] = logo[customer];
                             break;
