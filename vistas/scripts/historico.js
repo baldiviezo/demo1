@@ -201,5 +201,6 @@ function saveAsExcel(buffer, filename){
 
 const excelHistorico = document.querySelector('#excelHistorico');
 excelHistorico.addEventListener('click', ()=>{
-    downloadAsExcel(filterLogo)
+    let reversed = filterLogo.reverse();
+    downloadAsExcel(reversed)
 })
