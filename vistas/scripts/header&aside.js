@@ -42,7 +42,6 @@ header.innerHTML = `
         <a href="#" class="notif">
             <img src="../imagenes/bell.svg" id="seguimiento">
             <span class="count">0</span>
-            <input id="countInput" hidden>
         </a>
     </div>
 </nav>
@@ -77,17 +76,17 @@ closeProductSMW.addEventListener('click',()=>{
 });
 /**************ADVERTENCIA************* */
 const count = document.querySelector('.count');
-const countInput = document.querySelector('#countInput');
 setInterval(()=>{
     fetch('../count', {
         method: "POST"
     }).then(response => response.text()).then(data=>{
         count.innerHTML = data;
-        countInput.value = data;
-        console.log(countInput.value);
+        if (data > 0 ){
+            readProductsMW();
+        }       
     }).catch(err => console.log(err));
 },1000)
-countInput.addEventListener('change', readProductsMW)
+
 //------------------------------------------------TABLA MODAL PRODUCTS--------------------------------------------------
 
 
