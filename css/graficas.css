@@ -22,9 +22,6 @@ main{
 	display: flex;
 	justify-content: space-evenly;
 }
-.panelChart label{
-	
-}
 .container__chart{
 	background: var(--light);
 	padding: 1rem;
@@ -44,7 +41,6 @@ main{
 	border: none;
 }
 #chart canvas{
-	background-color: aqua;
 	width: 100%;
 }
 

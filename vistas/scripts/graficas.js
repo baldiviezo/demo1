@@ -13,6 +13,7 @@ showChart.addEventListener('click',()=>{
     method: "POST",
     body: JSON.stringify(variable.value)
   }).then(response => response.json()).then(data => {
+    console.log(data)
     data.forEach((valor) => {
       ejey.push(valor[`${variable.value}`]);
       ejex.push(valor.hora_tmp);
