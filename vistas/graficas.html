@@ -8,10 +8,9 @@
 	<link rel="icon" href="../imagenes/icono.JPG">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/graficas.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/aside.css">
-
+	<link rel="stylesheet" href="../css/graficas.css">
     <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="../css/buttonCRUD.css">
     <link rel="stylesheet" type="text/css" href="../css/paginacion.css">
@@ -21,18 +20,32 @@
     <aside class="sidebar close"></aside>
     <main>
         <div class="container">
-            <div>
-                <h2>Bomba 1</h2>
-            <div  id="bomba1"></div>
-            </div>
-            <div>
-                <h2>Bomba 2</h2>
-            <div  id="bomba2"></div>
-            </div>
-            <div>
-                <h2>Nivel</h2>
-            <div id="nivel"></div>
-            </div>
+            <div class="panelChart">
+				<div class="combo__search">
+					<label>Variable: </label>
+					<select class="select" id="variable">
+						<option value="bomba_dm1">Bomba 1</option>
+						<option value="bomba_dm2">Bomba 2</option>
+						<option value="nivel_dm">Nivel</option>
+					</select>
+				</div>
+				<div>
+					<div>
+						<label>Desde:</label>
+						<input type="date" class="input__date">
+					</div>
+					<div>
+						<label>Hasta:</label>
+						<input type="date" class="input__date">
+					</div>
+				</div>
+				<div>
+					<button id="showChart">Graficar</button>
+				</div>
+			</div>
+			<div class="container__chart">
+				<div id="chart"></div>  
+			</div>  
         </div>
     </main>
     <!--Tabla de seguimiento-->

@@ -1,4 +1,23 @@
-const bomba1 = document.getElementById('bomba1');
+/********************************************* */
+let ejey = [];
+let ejex = [];
+const chart = document.getElementById('chart');
+const variable = document.getElementById('variable');
+const showChart = document.getElementById('showChart');
+showChart.addEventListener('click',()=>{
+  chart.innerHTML = '';
+  let canvas= document.createElement('canvas');
+  chart.appendChild(canvas);
+  console.log(variable.value);
+  fetch('../graficas', {
+    method: "POST",
+    body: variable.value
+  }).then(response => response.json()).then(data => {
+    
+  }).catch(err => console.log(err));
+});
+
+/*const bomba1 = document.getElementById('bomba1');
 const bomba2 = document.getElementById('bomba2');
 const nivel = document.getElementById('nivel');
 let arrayBomba1 = [];
@@ -39,8 +58,8 @@ setTimeout(()=>{
     //------Bomba 1
     const chartBomba1 = bomba1.children[0];
     new Chart(chartBomba1, {
-  type: 'line',
-  data: {
+    type: 'line',
+    data: {
     labels: hora,
     datasets: [{
       label: 'ON / OFF',  //Nombre de la variable y 
@@ -272,7 +291,7 @@ new Chart(chartNivel, {
 
   
 }, 10000)
-
+*/
 
 
 

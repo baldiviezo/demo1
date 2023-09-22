@@ -1,10 +1,53 @@
-main div.container{
+/*main div.container{
     width: 100%;
     height: 100%;
     display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 	gap: 1rem 1rem;
+}*/
+main{
+	width: 100%;
+	height: calc(100% - 4rem);
+	padding: 1rem;
 }
+.container{
+	display: grid;
+	grid-template-rows: 6rem 1fr;
+	width: 100%;
+	height: 100%;
+}
+.panelChart{
+	background: var(--light);
+	padding: 1rem;
+	display: flex;
+	justify-content: space-evenly;
+}
+.panelChart label{
+	
+}
+.container__chart{
+	background: var(--light);
+	padding: 1rem;
+}
+#chart{
+	width: 100%;
+	height: 100%;
+}
+#showChart{
+	color: #225c74;
+	padding: 0 .5rem;
+	border-radius: .5rem;
+	border-color: #225c74;
+}
+.input__date{
+	color: #225c74;
+	border: none;
+}
+#chart canvas{
+	background-color: aqua;
+	width: 100%;
+}
+
 
 @media(max-width:800px){
 	main{
