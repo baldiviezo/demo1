@@ -8,12 +8,10 @@ showChart.addEventListener('click',()=>{
   chart.innerHTML = '';
   let canvas= document.createElement('canvas');
   chart.appendChild(canvas);
-  console.log(variable.value);
   fetch('../graficas', {
     method: "POST",
     body: JSON.stringify(variable.value)
   }).then(response => response.json()).then(data => {
-    console.log(data)
     data.forEach((valor) => {
       ejey.push(valor[`${variable.value}`]);
       ejex.push(valor.hora_tmp);
