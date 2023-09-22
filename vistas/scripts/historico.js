@@ -66,14 +66,14 @@ function searchLogo(e){
                 if(selectSearchProdMW.value == 'todas'){
                     if(valor == 'nombre_sgmt' ||  valor == 'mensaje_sgmt' || valor == 'categoria_sgmt' || valor == 'fecha_sgmt' || valor == 'hora_sgmt'){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
-                            filterlogo[customer] = logo[customer];
+                            filterLogo[customer] = logo[customer];
                             break;
                         }
                     }
                 }else{
                     if(valor == selectSearchProdMW.value){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSearchProdMW.value.toLowerCase())>=0){
-                            filterlogo[customer] = logo[customer];
+                            filterLogo[customer] = logo[customer];
                             break;
                         }
                     }
@@ -81,7 +81,6 @@ function searchLogo(e){
             }
             
         }
-        
         paginacionCustomer(Object.values(filterLogo).length, 1);
     }
 }
