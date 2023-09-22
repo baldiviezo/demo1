@@ -57,8 +57,7 @@ selectNumberClte.addEventListener('change', function(){
     paginacionCustomer(Object.values(filterLogo).length, 1);
 });
 //------buscar por:
-function searchLogo(e){
-    
+function searchLogo(){
         filterLogo = [];
         i=0;
         for(let customer in logo){
@@ -81,6 +80,7 @@ function searchLogo(e){
             }
             
         }
+        console.log(filterLogo)
         paginacionCustomer(Object.values(filterLogo).length, 1);
     
 }
