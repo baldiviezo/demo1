@@ -74,11 +74,12 @@ closeProductSMW.addEventListener('click',()=>{
     }).then(response => response.json()).then().catch(err => console.log(err));
 });
 /**************ADVERTENCIA************* */
+const count = document.querySelector('.count')
 setInterval(()=>{
     fetch('../count', {
         method: "POST"
     }).then(response => response.text()).then(data=>{
-        console.log(data);
+        count.innerHTML = data;
     }).catch(err => console.log(err));
 },1000)
 //------------------------------------------------TABLA MODAL PRODUCTS--------------------------------------------------
