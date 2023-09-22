@@ -42,6 +42,7 @@ header.innerHTML = `
         <a href="#" class="notif">
             <img src="../imagenes/bell.svg" id="seguimiento">
             <span class="count">0</span>
+            <input id="countInput" hidden>
         </a>
     </div>
 </nav>
@@ -74,18 +75,18 @@ closeProductSMW.addEventListener('click',()=>{
     }).then(response => response.json()).then().catch(err => console.log(err));
 });
 /**************ADVERTENCIA************* */
-const count = document.querySelector('.count')
+const count = document.querySelector('.count');
+const countInput = document.querySelector('#countInput');
 setInterval(()=>{
     fetch('../count', {
         method: "POST"
     }).then(response => response.text()).then(data=>{
         count.innerHTML = data;
+        countInput.value = data;
     }).catch(err => console.log(err));
 },1000)
+countInput.addEventListener('change', readProductsMW)
 //------------------------------------------------TABLA MODAL PRODUCTS--------------------------------------------------
-setInterval(()=>{
-    readProductsMW();
-},5000)
 
 
 let productsMW = {};
