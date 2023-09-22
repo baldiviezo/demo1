@@ -65,14 +65,16 @@ function searchLogo(){
                 if(selectSearchClte.value == 'todas'){
                     if(valor == 'nombre_sgmt' ||  valor == 'mensaje_sgmt' || valor == 'categoria_sgmt' || valor == 'fecha_sgmt' || valor == 'hora_sgmt'){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSerchClte.value.toLowerCase())>=0){
-                            filterLogo[customer] = logo[customer];
+                            filterLogo[i] = logo[customer];
+                            i++
                             break;
                         }
                     }
                 }else{
                     if(valor == selectSearchClte.value){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSerchClte.value.toLowerCase())>=0){
-                            filterLogo[customer] = logo[customer];
+                            filterLogo[i] = logo[customer];
+                            i++
                             break;
                         }
                     }
