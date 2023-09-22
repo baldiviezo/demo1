@@ -41,6 +41,7 @@ header.innerHTML = `
     <div>
         <a href="#" class="notif">
             <img src="../imagenes/bell.svg" id="seguimiento">
+            <span class="count">0</span>
         </a>
     </div>
 </nav>
@@ -65,9 +66,19 @@ function tablaSeguimiento(){
 }
 const closeProductSMW = document.getElementById('closeProductSMW');
 closeProductSMW.addEventListener('click',()=>{
+    
     productSMW.classList.remove('modal__show');
+    /***********ADVERTENCIA*************/
+    fetch('../advertencia', {
+        method: "POST"
+    }).then(response => response.json()).then().catch(err => console.log(err));
 });
-
+/**************ADVERTENCIA************* */
+fetch('../count', {
+    method: "POST"
+}).then(response => response.json()).then(data=>{
+    console.log(data);
+}).catch(err => console.log(err));
 
 //------------------------------------------------TABLA MODAL PRODUCTS--------------------------------------------------
 setInterval(()=>{
@@ -188,4 +199,5 @@ function tableProductsMW(page) {
         }
     }   
 }
+
 
