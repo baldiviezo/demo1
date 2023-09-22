@@ -14,7 +14,7 @@ showChart.addEventListener('click',()=>{
     body: JSON.stringify(variable.value)
   }).then(response => response.json()).then(data => {
     data.forEach((valor) => {
-      ajey.push(valor[`${variable.value}`]);
+      ejey.push(valor[`${variable.value}`]);
       ejex.push(valor.hora_tmp);
     });
     const myChart = chart.children[0];
