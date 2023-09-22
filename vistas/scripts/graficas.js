@@ -24,8 +24,8 @@ showChart.addEventListener('click',()=>{
       data: {
         labels: ejex,
         datasets: [{
-          backgroundColor: 'rgba(255,206,86,0.2)',
-          borderColor: 'orange',
+          backgroundColor: 'rgba(54,162,235,0.2)',
+          borderColor: 'blue',
           data: ejey,
           borderWidth: 1
         }]
