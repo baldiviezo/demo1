@@ -47,6 +47,7 @@ showChart.addEventListener('click',()=>{
   }).catch(err => console.log(err));
 });
 /****************************************/
+<<<<<<< HEAD
 let date = new Date();
 date.setHours(date.getHours());
 let fecha = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getUTCDate();
@@ -55,6 +56,10 @@ const inputDesde = document.getElementById('inputDesde');
 inputDesde.value = fecha;
 const inputHasta = document.getElementById('inputHasta');
 inputHasta.value = fecha;
+=======
+const inputDesde = document.getElementById('inputDesde');
+const inputHasta = document.getElementById('inputHasta');
+>>>>>>> 81b1347b81377cfdf445617ebd4aea9605192c50
 inputDesde.addEventListener('change', prueba);
 inputHasta.addEventListener('change', prueba);
 function prueba() {
