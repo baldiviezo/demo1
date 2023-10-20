@@ -83,3 +83,44 @@ CREATE TABLE `falla` (
   `fecha_fll` varchar(10) NOT NULL,
   `hora_fll` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+/*******************************************************TABLAS  FINALES**************************************************/
+/*-----TABLA DE VARIABLES*/
+CREATE TABLE `variables` (
+  `id_var` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `ope_var` boolean NOT NULL,
+  `bomba1_var` boolean NOT NULL,
+  `bomba2_var` boolean NOT NULL,
+  `falla1_var` boolean NOT NULL,
+  `falla2_var` boolean NOT NULL,
+  `valvula_var` boolean NOT NULL,
+  `nivel_var` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `variables` (`ope_var`, `bomba1_var`, `bomba2_var`, `falla1_var`, `falla2_var`, `valvula_var`, `nivel_var`) VALUES ( false, false, false, false, false, false, 0);
+
+
+/*-----TABLA DE AVISOS*/
+CREATE TABLE `avisos` (
+  `id_avi` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre_avi` varchar(30) NOT NULL,
+  `mensaje_avi` varchar(100) NOT NULL,
+  `categoria_avi` varchar(11) NOT NULL,
+  `fecha_avi` date NOT NULL,
+  `hora_avi` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+UPDATE branches SET start_date = '2020-10-19' WHERE id = 4;
+
+
+/*Tabla para variables q se van a graficar*/
+
+
+CREATE TABLE `nivel` (
+  `id_nvl` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `valor_nvl` int(11) NOT NULL,
+  `fecha_nvl` date NOT NULL,
+  `hora_nvl` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

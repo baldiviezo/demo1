@@ -24,19 +24,17 @@
 				<div class="combo__search">
 					<label>Variable: </label>
 					<select class="select" id="variable">
-						<option value="bomba1_dm">Bomba 1</option>
-						<option value="bomba2_dm">Bomba 2</option>
-						<option value="nivel_dm">Nivel</option>
+						<option value="nivel">Nivel</option>
 					</select>
 				</div>
 				<div>
 					<div>
 						<label>Desde:</label>
-						<input type="date" class="input__date">
+						<input type="date" class="input__date" id="inputDesde">
 					</div>
 					<div>
 						<label>Hasta:</label>
-						<input type="date" class="input__date">
+						<input type="date" class="input__date" id="inputHasta">
 					</div>
 				</div>
 				<div>
@@ -48,12 +46,13 @@
 			</div>  
         </div>
     </main>
-    <!--Tabla de seguimiento-->
+    
+	<!----------------------------------------------TABLA DE AVISOS---------------------------------------->
     <section id="productSMW" class="modalTable">
 		<div class="modalTable__container">
 			<div class="table">
 				<div class="table__title">
-					<h1>Tabla de productos</h1>
+					<h1>Tabla de avisos</h1>
 					<img src="../imagenes/salir.svg" id="closeProductSMW">
 				</div>
 				<section class="table__header">
@@ -62,11 +61,11 @@
 						<div>
 							<select id="selectSearchProdMW" class="select">
 								<option value="todas">Buscar por</option>
-								<option value="nombre_sgmt">Nombre</option>
-								<option value="mensaje_sgmt">Mensaje</option>
-								<option value="categoria_sgmt">Categoria</option>
-                                <option value="fecha_sgmt">Fecha</option>
-                                <option value="hora_sgmt">Hora</option>
+								<option value="nombre_avi">Nombre</option>
+								<option value="mensaje_avi">Mensaje</option>
+								<option value="categoria_avi">Categoria</option>
+                                <option value="fecha_avi">Fecha</option>
+                                <option value="hora_avi">Hora</option>
 							</select>
 						</div>
 						<div class="table__search">
@@ -106,6 +105,7 @@
 			</div>		
 		</div>
 	</section>
+
 </body>
 <script src="./scripts/header&aside.js"></script>
 <script src="./scripts/graficas.js"></script>

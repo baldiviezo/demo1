@@ -1,34 +1,4 @@
-/*const historico = document.querySelector('#historico');
-historico.addEventListener('click', generarReporte);
-function generarReporte() {
-    fetch('../historicos', {
-        method: "POST"
-    }).then(response => response.json()).then(data => {
-      downloadAsExcel(data);
-    })
-}
-const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-const EXCEL_EXTENSION = '.xlsx';
-
-function downloadAsExcel(data){
-    const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = {
-        Sheets: {
-            'data' : worksheet
-        },
-        SheetNames: ['data']
-    };
-    const excelBuffer = XLSX.write(workbook, {bookType: 'xlsx', type: 'array'});
-    console.log(excelBuffer);
-    saveAsExcel(excelBuffer, 'data_template');
-}
-
-function saveAsExcel(buffer, filename){
-    const data = new Blob([buffer], {type: EXCEL_TYPE});
-    saveAs(data, filename+EXCEL_EXTENSION);
-}*/
-
-
+/******************************************TABLA DE HISTORICOS**********************************************/
 let logo = {};
 let filterLogo = [];
 readLogo();
@@ -63,7 +33,7 @@ function searchLogo(){
         for(let customer in logo){
             for(let valor in logo[customer] ){
                 if(selectSearchClte.value == 'todas'){
-                    if(valor == 'nombre_sgmt' ||  valor == 'mensaje_sgmt' || valor == 'categoria_sgmt' || valor == 'fecha_sgmt' || valor == 'hora_sgmt'){
+                    if(valor == 'nombre_avi' ||  valor == 'mensaje_avi' || valor == 'categoria_avi' || valor == 'fecha_avi' || valor == 'hora_avi'){
                         if(logo[customer][valor].toLowerCase().indexOf(inputSerchClte.value.toLowerCase())>=0){
                             filterLogo[i] = logo[customer];
                             i++
@@ -82,9 +52,7 @@ function searchLogo(){
             }
             
         }
-        console.log(filterLogo)
         paginacionCustomer(Object.values(filterLogo).length, 1);
-    
 }
 //------Ordenar tabla descendente ascendente
 let orderLogo = document.querySelectorAll('.tbody__head--customer');
@@ -158,7 +126,7 @@ function tableCustomers(page) {
         let tr = document.createElement('tr');
         for(let valor in filterLogo[customer]){
             let td = document.createElement('td');
-            if(valor == 'id_sgmt'){
+            if(valor == 'id_avi'){
                 td.innerText = filterLogo[customer][valor];
                 td.setAttribute('hidden', '');
                 tr.appendChild(td);
@@ -166,6 +134,19 @@ function tableCustomers(page) {
                 td.innerText = i;
                 tr.appendChild(td);
                 i++;
+            }else if(valor == 'categoria_avi'){
+                if(filterLogo[customer][valor] == 'Evento' ){
+                    tr.setAttribute('style', 'background: #00e81b44');
+                }else if(filterLogo[customer][valor] == 'Advertencia' ){
+                    tr.setAttribute('style', 'background: #f3ff57');
+                }else if (filterLogo[customer][valor] == 'Error' ){
+                    tr.setAttribute('style', 'background: #f008');
+                }       
+                td.innerText = filterLogo[customer][valor];
+                tr.appendChild(td);
+            }else if(valor == 'fecha_avi'){
+                td.innerText = filterLogo[customer][valor].slice(0,10);
+                tr.appendChild(td);
             }else{
                 td.innerText = filterLogo[customer][valor];
                 tr.appendChild(td);
@@ -178,9 +159,9 @@ function tableCustomers(page) {
     }   
 }
 
+/*********************************************Reporte en Excel****************************************************/
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
-
 function downloadAsExcel(data){
     console.log(data)
     const worksheet = XLSX.utils.json_to_sheet(data);
@@ -191,14 +172,13 @@ function downloadAsExcel(data){
         SheetNames: ['data']
     };
     const excelBuffer = XLSX.write(workbook, {bookType: 'xlsx', type: 'array'});
-    saveAsExcel(excelBuffer, 'data_template');
+    saveAsExcel(excelBuffer, 'Historico');
 }
 
 function saveAsExcel(buffer, filename){
     const data = new Blob([buffer], {type: EXCEL_TYPE});
     saveAs(data, filename+EXCEL_EXTENSION);
 }
-
 const excelHistorico = document.querySelector('#excelHistorico');
 excelHistorico.addEventListener('click', ()=>{
     let reversed = filterLogo.reverse();
