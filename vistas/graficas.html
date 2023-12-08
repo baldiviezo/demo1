@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graficas</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Graficas</title>
 	<script src="scripts/sesionIniciada.js"></script>
 	<link rel="icon" href="../imagenes/icono.JPG">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/aside.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!--Para incluir fechas en una grafica-->
+	<link rel="stylesheet" href="../css/general.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/aside.css">
 	<link rel="stylesheet" href="../css/graficas.css">
-    <link rel="stylesheet" href="../css/table.css">
-    <link rel="stylesheet" href="../css/buttonCRUD.css">
-    <link rel="stylesheet" type="text/css" href="../css/paginacion.css">
+	<link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" href="../css/buttonCRUD.css">
+	<link rel="stylesheet" type="text/css" href="../css/paginacion.css">
 </head>
+
 <body>
-    <header id="graficas"></header>  
-    <aside class="sidebar close"></aside>
-    <main>
-        <div class="container">
-            <div class="panelChart">
+	<header id="graficas"></header>
+	<aside class="sidebar close"></aside>
+	<main>
+		<div class="container">
+			<div class="panelChart">
 				<div class="combo__search">
-					<label>Variable: </label>
+					<label>Variables: </label>
 					<select class="select" id="variable">
 						<option value="nivel">Nivel</option>
 					</select>
 				</div>
-				<div>
+				<div class="box__date">
 					<div>
 						<label>Desde:</label>
 						<input type="date" class="input__date" id="inputDesde">
@@ -42,13 +45,13 @@
 				</div>
 			</div>
 			<div class="container__chart">
-				<div id="chart"></div>  
-			</div>  
-        </div>
-    </main>
-    
+				<canvas id="chart"></canvas>
+			</div>
+		</div>
+	</main>
+
 	<!----------------------------------------------TABLA DE AVISOS---------------------------------------->
-    <section id="productSMW" class="modalTable">
+	<section id="productSMW" class="modalTable">
 		<div class="modalTable__container">
 			<div class="table">
 				<div class="table__title">
@@ -64,8 +67,8 @@
 								<option value="nombre_avi">Nombre</option>
 								<option value="mensaje_avi">Mensaje</option>
 								<option value="categoria_avi">Categoria</option>
-                                <option value="fecha_avi">Fecha</option>
-                                <option value="hora_avi">Hora</option>
+								<option value="fecha_avi">Fecha</option>
+								<option value="hora_avi">Hora</option>
 							</select>
 						</div>
 						<div class="table__search">
@@ -74,11 +77,15 @@
 						</div>
 					</div>
 				</section>
-				<div class="showPage" id="showPageProductMW"><h2></h2></div>
+				<div class="showPage" id="showPageProductMW">
+					<h2></h2>
+				</div>
 				<div class="container__page">
 					<div class="paginacion">
 						<!--Envoltura-->
-						<div class="wrapper" id="wrapperProductMW"><ul></ul></div>
+						<div class="wrapper" id="wrapperProductMW">
+							<ul></ul>
+						</div>
 					</div>
 					<div>
 						<select id="selectNumberProdMW">
@@ -88,25 +95,28 @@
 					</div>
 				</div>
 				<section class="table__body">
-			<table>
-				<thead>
-					<tr>
-						<th>N°</th>
-						<th>Nombre</th>
-						<th>Mensaje</th>
-						<th>Categoria</th>
-						<th>Fecha</th>
-						<th>Hora</th>
-					</tr>
-				</thead>
-				<tbody id="tbodyProductMW"></tbody>
-			</table>
-		</section>
-			</div>		
+					<table>
+						<thead>
+							<tr>
+								<th>N°</th>
+								<th>Nombre</th>
+								<th>Mensaje</th>
+								<th>Categoria</th>
+								<th>Fecha</th>
+								<th>Hora</th>
+							</tr>
+						</thead>
+						<tbody id="tbodyProductMW"></tbody>
+					</table>
+				</section>
+			</div>
 		</div>
 	</section>
-
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </body>
 <script src="./scripts/header&aside.js"></script>
 <script src="./scripts/graficas.js"></script>
+
 </html>

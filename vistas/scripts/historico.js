@@ -163,7 +163,6 @@ function tableCustomers(page) {
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 function downloadAsExcel(data){
-    console.log(data)
     const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = {
         Sheets: {

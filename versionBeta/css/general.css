@@ -1,0 +1,26 @@
+@import url('reset.css');
+/* General Style */
+:root{
+	font-size: 13px;
+    /*loginUp*/
+	--color-background-blue: #0e4e65;
+    --color-white: #fff;
+    --color-opaque-grey: #5757577e;
+	--color-transparent-grey: #5e709455;
+    --color-transparent-white: #fffa;
+    /*home*/
+    --color-background-head: #48494e;
+    --color-background-body: #cdd3d7;
+    --color-font-gray: #9b9c9d;
+    --color-background-submit: #b5bec5;
+    --color-background-submit-hover: #00a1d1;
+    --color-background-bar: #64646a;
+    --color-font-title: #404d53;
+}
+body{
+    font-family: 'Terminal Dosis', Arial, sans-serif;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+

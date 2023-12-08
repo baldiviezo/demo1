@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+    <header>
+        <div class="header__top">
+            <div>
+                <img src="../img/home.svg" alt="Imagen de muestra">
+                <h1>Demo de presentacion</h1>
+            </div>
+            <img src="../img/menu.svg" alt="Imagen de muestra">
+        </div>
+        <div class="header__botton">
+            <div class="container">
+                <div class="clave">Operador</div>
+                <div>Alvaro Baldiviezo</div>
+            </div>
+            <div class="container">
+                <div class="clave">Fecha y hora</div>
+                <div id="date"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="nivel">
+            <div class="nivel__top">
+                <h1>Nivel del tanque</h1>
+                <img src="../img/edit.svg">
+            </div>
+            <div class="nivel__body">
+                <div class="container__bar">
+                    <div class="bar">
+                        <div class="line__bar" id="lineBar">
+                            <div class="indicador__bar">
+                                <span id="textBar">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar__botton"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicadores">
+            <div class="title">
+                <h1>Maquina</h1>
+                <h1>Inicio</h1>
+                <h1>Duracion</h1>
+                <h1>ON/OFF</h1>
+                <h1>Estado</h1>
+            </div>
+            <div>
+                <h1>Valvula</h1>
+                <h1>13:13:54 pm</h1>
+                <h1>--:--:--</h1>
+                <h1 id="textvalvula" class="indicadores__text"></h1>
+                <div><span id="ledvalvula" class="indicadores__led"></span></div>
+            </div>
+            <div>
+                <h1>Bomba uno</h1>
+                <h1>13:14:23 pm</h1>
+                <h1>--:--:--</h1>
+                <h1 id="textBomba1" class="indicadores__text"></h1>
+                <div><span id="ledBomba1" class="indicadores__led"></span></div>
+            </div>
+            <div>
+                <h1>Bomba dos</h1>
+                <h1>13:13:54 pm</h1>
+                <h1>--:--:--</h1>
+                <h1 id="textBomba2" class="indicadores__text"></h1>
+                <div><span id="ledBomba2" class="indicadores__led"></span></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img src="../img/logout.svg">
+        <div>
+            <button class="active">Inicio</button>
+            <button>Modulo 1</button>
+        </div>
+    </footer>
+    <!--Ventana modal nivel chart-->
+    <section id="chartNivelMW" class="modal">
+        <div class="container__chart">
+            <div class="chart__title">
+                <img src="../img/x.svg" id="closechartNivelMW">
+            </div>
+            <div class="chart__body">
+                <canvas id="chart" class="body__canvas"></canvas>
+            </div>
+            <div class="chart__footer">
+                <button class="footer__button" onclick="resetZoom()">1:1</button>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js"
+    integrity="sha512-wUYbRPLV5zs6IqvWd88HIqZU/b8TBx+I8LEioQ/UC0t5EMCLApqhIAnUg7EsAzdbhhdgW07TqYDdH3QEXRcPOQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./script/home.js"></script>
+
+</html>

@@ -21,7 +21,6 @@
     <header id="indicadores"></header>  
     <aside class="sidebar close"></aside>
     <main>
-        <h2>Encendido</h2>
         <div class="section">
             <div class="foco__container" id="ope_dm">
                 <span class="foco"></span>
@@ -32,9 +31,6 @@
                     <p></p>
                 </span>
             </div>
-        </div>
-        <h2>Valvulas</h2>
-        <div class="section">
             <div class="foco__container" id="valvula_dm">
                 <span class="foco"></span>
                 <span class="info">
@@ -44,9 +40,6 @@
                     <p></p>
                 </span>
             </div>
-        </div>
-        <h2>Bombas</h2>
-        <div class="section">
             <div class="foco__container" id="bomba1_dm">
                 <span class="foco"></span>
                 <span class="info">
@@ -84,48 +77,49 @@
                 </span>
             </div>
         </div>
-        <h2>Nivel</h2>
-        <div class="gauge">
-            <div class="scale">
-                <span>0</span>
-                <span>50</span>
-                <span>100</span>
-            </div>
-            <div class="line">
-                <span style="--i:1"></span>
-                <span style="--i:2"></span>
-                <span style="--i:3"></span>
-                <span style="--i:4"></span>
-                <span style="--i:5"></span>
-                <span style="--i:6"></span>
-                <span style="--i:7"></span>
-                <span style="--i:8"></span>
-                <span style="--i:9"></span>
-                <span style="--i:10"></span>
-                <span style="--i:11"></span>
-                <span style="--i:12"></span>
-                <span style="--i:13"></span>
-                <span style="--i:14"></span>
-                <span style="--i:15"></span>
-                <span style="--i:16"></span>
-                <span style="--i:17"></span>
-                <span style="--i:18"></span>
-                <span style="--i:19"></span>
-                <span style="--i:20"></span>
-            </div>
-            <div class="line__bottom"></div>
-            <div class="circle__bottom"></div>
-            <svg version="1.1" baseProfile="full" width="190" height="190" xmlns="http://www.w3.org/2000/svg">
-                <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0%" stop-color="#0f0"/>
-                    <stop offset="100%" stop-color="#f00"/>
-                </linearGradient>
-                <path id="nivel_gradient" d="M5 95 A80 80 0 0 1 185 95" stroke=url(#gradient) fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 282.78"/>
-            </svg>
-            <div class="circle__center">
-                <span class="name__gauge">Nivel del tanque</span>
-                <span class="value__gauge" id="nivel_txt">0</span>
-                <!--<img src="leaf.svg" alt="">-->
+        <div class="section__gauge">
+            <div class="gauge">
+                <div class="scale">
+                    <span>0</span>
+                    <span>50</span>
+                    <span>100</span>
+                </div>
+                <div class="line">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                    <span style="--i:17"></span>
+                    <span style="--i:18"></span>
+                    <span style="--i:19"></span>
+                    <span style="--i:20"></span>
+                </div>
+                <div class="line__bottom"></div>
+                <div class="circle__bottom"></div>
+                <svg version="1.1" baseProfile="full" width="190" height="190" xmlns="http://www.w3.org/2000/svg">
+                    <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0%" stop-color="#0f0"/>
+                        <stop offset="100%" stop-color="#f00"/>
+                    </linearGradient>
+                    <path id="nivel_gradient" d="M5 95 A80 80 0 0 1 185 95" stroke=url(#gradient) fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 282.78"/>
+                </svg>
+                <div class="circle__center">
+                    <span class="name__gauge">Nivel del tanque</span>
+                    <span class="value__gauge" id="nivel_txt">0</span>
+                    <!--<img src="leaf.svg" alt="">-->
+                </div>
             </div>
         </div>
     </main>
