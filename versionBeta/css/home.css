@@ -237,7 +237,7 @@ footer button:hover{
 	--pointer: unset;
 }
 .chart__title {
-    background-color: rgba(0,161,209,1);
+    background-color: var(--color-background-head);
     width: 100%;
     display: flex;
     justify-content: end;
@@ -251,8 +251,11 @@ footer button:hover{
     margin-right: 10px;
 }
 .chart__footer{
-    border-top: 1px solid #000a;
-    padding: 1rem 2rem 2rem 2rem;
+    /*border-top: 1px solid #000a;*/
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    padding: 0 2rem;
 }
 .footer__button{
     border-radius: .3rem;
@@ -263,4 +266,7 @@ footer button:hover{
     height: 1.7rem;
     font-weight: bold;
     cursor: pointer;
+}
+.footer__button:hover{
+    border: none;
 }

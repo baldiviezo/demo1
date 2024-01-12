@@ -1,28 +1,24 @@
 const date = new Date();
 const diaSemana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
 const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-const fecha = diaSemana[date.getDay()]+', '+date.getDate()+' de '+meses[date.getMonth()]+' de '+date.getFullYear(); 
+const fecha = diaSemana[date.getDay()] + ', ' + date.getDate() + ' de ' + meses[date.getMonth()] + ' de ' + date.getFullYear();
 document.querySelector('#date').innerText = fecha;
 
-
-
-/*Nivel */
+/*******************************************************Nivel**********************************************************/
 const lineBar = document.querySelector('#lineBar');
 const textBar = document.querySelector('#textBar');
 /*text indicadores */
 const textvalvula = document.querySelector('#textvalvula');
 let varValvula = 'OFF';
 const textBomba1 = document.querySelector('#textBomba1');
-let varBomba1 = 'OFF'; 
+let varBomba1 = 'OFF';
 const textBomba2 = document.querySelector('#textBomba2');
 let varBomba2 = 'OFF';
 /*led indicadores */
 const ledvalvula = document.querySelector('#ledvalvula');
 const ledBomba1 = document.querySelector('#ledBomba1');
 const ledBomba2 = document.querySelector('#ledBomba2');
-
-
-setInterval(()=>{
+setInterval(() => {
     fetch('../../variables', {
         method: "POST"
     }).then(response => response.json()).then(data => {
@@ -33,7 +29,7 @@ setInterval(()=>{
 
         textvalvula.innerHTML = varValvula;
         /*Bomba1 */
-        data.bomba1_var == 1 ?  varBomba1 = 'ON' : varBomba1 = 'OFF';
+        data.bomba1_var == 1 ? varBomba1 = 'ON' : varBomba1 = 'OFF';
         data.bomba1_var == 1 ? ledBomba1.style.background = 'rgb(94,209,173)' : ledBomba1.style.background = 'rgb222,56,88()';
         varBomba1 == 'ON' ? textBomba1.setAttribute('style', 'color: rgb(94,209,173)') : textBomba1.setAttribute('style', 'color: rgb(222,56,88)')
         textBomba1.innerText = varBomba1;
@@ -48,28 +44,27 @@ setInterval(()=>{
     }).catch(err => console.log(err));
 }, 1000);
 
-//_____Ventana modal chart
+/*************************************************Ventana modal chart**************************************************/
+//------Ventana modal chart
 const chartNivelMW = document.querySelector('#chartNivelMW');
 const pencilNivel = document.querySelector('.nivel__top img');
 pencilNivel.addEventListener('click', chartNivel);
-function chartNivel(){
+function chartNivel() {
     chartNivelMW.classList.add('modal__show');
-    myChart.update();
+    //myChart.update();
 }
 const closechartNivelMW = document.querySelector('#closechartNivelMW');
-closechartNivelMW.addEventListener('click', ()=>{
+closechartNivelMW.addEventListener('click', () => {
     chartNivelMW.classList.remove('modal__show');
-    const { scales: { x, y } } = myChart.config.options;
+    /*const { scales: { x, y } } = myChart.config.options;
     x.min = 0;
     x.max = 0;
     myChart.config.options.scales.x.time.unit = 'day';
-    myChart.update();
-
+    myChart.update();*/
 })
-
-
-/*Ventana modal chart*/
-let arrayUndefined = []
+//------chart
+let arrayUndefined = [];
+let arrayCount = [];
 const data = {
     datasets: [{
         data: arrayUndefined,
@@ -96,13 +91,13 @@ const hoverLine = {
             ctx.moveTo(xCoor, top);
             ctx.lineTo(xCoor, bottom);
             ctx.stroke();
-            
+
             //hoverline
             ctx.beginPath();
             ctx.lineWidth = 1;
             ctx.strokeStyle = 'rgba(0,0,0,1)';
             ctx.moveTo(xCoor, yCoor);
-            ctx.lineTo(right,yCoor);
+            ctx.lineTo(right, yCoor);
             ctx.stroke();
             ctx.closePath();
             //texto
@@ -110,14 +105,14 @@ const hoverLine = {
             ctx.beginPath();
             ctx.fillStyle = 'black';
             //roundRect(x, y, width, height, radii)
-            ctx.roundRect(right, yCoor-10, 30, 18, 0);
+            ctx.roundRect(right, yCoor - 10, 30, 18, 0);
             ctx.fill();
 
             ctx.font = 'bold 10px sans-serif';
             ctx.fillStyle = 'rgba(0,161,209,1)';
             ctx.textAlign = 'center';
             //context.fillText(text, x, y, maxWidth)
-            ctx.fillText(y.getValueForPixel(yCoor), right+10, yCoor);
+            ctx.fillText(Math.round(y.getValueForPixel(yCoor)), right + 10, yCoor);
 
         }
     }
@@ -137,12 +132,11 @@ const legendMargin = {
 const labelTooltip = (tooltipItems) => {
     return '';
 }
-
 //Scala de chart
 let min_x, max_x, min_y, max_y;
 let const_min_x, const_max_x, const_min_y, const_max_y, const_left, const_right, const_top, const_bottom;
-let i = 0;
-
+let i;
+let c;
 //Cuadrantes
 const quadrants = {
     id: 'quadrants',
@@ -153,9 +147,10 @@ const quadrants = {
         min_x = x.min;
         max_x = x.max;
         min_y = y.min;
-        max_y = y._valueRange;
+        max_y = y.max;
+        //CADA VEZ QUE SE MUEVE EL MOUSE DENTRO DEL CANVAS ENTRA AQUI
         //console.log(x.min+' '+x._valueRange+' '+y.min+' '+ y._valueRange)
-        if (i <= 1) {
+        if (i == 0) {
             i++;
             const_left = left;
             const_right = right;
@@ -163,6 +158,8 @@ const quadrants = {
             const_bottom = bottom;
             const_min_x = x.min;
             const_max_x = x.max;
+            const_min_y = y.min;
+            const_max_y = y.max;
         }
     }
 }
@@ -215,10 +212,10 @@ const config = {
                 //borderColor: '#94969d',
                 borderWidth: 5
             },
-            zoom:{
-                zoom:{
-                    wheel:{
-                        enabled:true,
+            zoom: {
+                zoom: {
+                    wheel: {
+                        enabled: true,
                     }
                 }
             }
@@ -243,16 +240,19 @@ function quadrantZoom(puntoX, puntoY) {
         //left
         if (puntoX < ((const_right + const_left) / 2)) {
             x.max = (max_x - min_x) / 2 + min_x;
-            if(x.max-min_x < 86400000){
+            if (x.max - min_x < 86400000) {
                 myChart.config.options.scales.x.time.unit = 'second';
             }
-            
-        //right
+            arrayCount.push({ 'x_min': min_x, 'x_max': x.max, 'y_min': y.min, 'y.max': y.max });
+        
+            //right
         } else if (puntoX > ((const_right + const_left) / 2)) {
             x.min = (max_x - min_x) / 2 + min_x;
-            if(x.max-min_x < 86400000){
+            if (x.max - min_x < 86400000) {
                 myChart.config.options.scales.x.time.unit = 'second';
             }
+            arrayCount.push({ 'x_min': x.min, 'x_max': max_x, 'y_min': y.min, 'y.max': y.max });
+        
         }
         myChart.update();
     }
@@ -261,8 +261,12 @@ function resetZoom() {
     const { scales: { x, y } } = myChart.config.options;
     x.min = const_min_x;
     x.max = const_max_x;
+    y.min = const_min_y;
+    y.max = const_max_y;
     myChart.config.options.scales.x.time.unit = 'day';
     myChart.update();
+    arrayCount = [];
+    arrayCount.push({ 'x_min': x.min, 'x_max': x.max, 'y_min': y.min, 'y.max': y.max });
 }
 //position tooltip
 Chart.Tooltip.positioners.top = function (elements, eventPosition) {
@@ -274,16 +278,37 @@ Chart.Tooltip.positioners.top = function (elements, eventPosition) {
 }
 
 
+fetch('../../graficas', {
+    method: "POST",
+}).then(response => response.json()).then(data => {
+    datosNivel = data;
+    datosNivel.forEach(element => {
+        arrayUndefined.push({ x: new Date(`${element.fecha_nvl.slice(0, 10)}T${element.hora_nvl}`), y: element.valor_nvl })
+    });
 
-    fetch('../../graficas', {
-        method: "POST",
-    }).then(response => response.json()).then(data => {
-        datosNivel = data;
-        datosNivel.forEach(element => {
-            arrayUndefined.push({x: new Date(`${element.fecha_nvl.slice(0, 10)}T${element.hora_nvl}`), y: element.valor_nvl})
-        });
+    //Tarda en graficar, No poner myChart.update() aqui
+}).catch(err => console.log(err));
+
+//------show chart
+function showChart() {
+    i = 0;
+    c = 1;
+    const { scales: { x, y } } = myChart.config.options;
+    arrayCount = [];
+    arrayCount.push({ 'x_min': x.min, 'x_max': x.max, 'y_min': y.min, 'y.max': y.max });
+    myChart.update();
+}
+function backChart() {
+    if (arrayCount.length - c > 0) {
+        const { scales: { x, y } } = myChart.config.options;
+        //left
+        c++;
+        if (x.max - x.min > 43200000) {
+            myChart.config.options.scales.x.time.unit = 'day';
+        }
+        x.min = arrayCount[arrayCount.length - c].x_min;
+        x.max = arrayCount[arrayCount.length - c].x_max;
         myChart.update();
-    }).catch(err => console.log(err));
-
-
-
+        
+    }
+}
